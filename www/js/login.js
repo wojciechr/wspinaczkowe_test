@@ -57,7 +57,24 @@ firebase.auth().onAuthStateChanged(function(user) {
                 }
 
             });
+function register (){
+		var userEmail = document.getElementById("email_field").value;
+		var userPass = document.getElementById("password_field").value;
 			
+			firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+			console.log(error);
+});
+	
+}
+
+function logout(){
+	firebase.auth().signOut().then(function() {
+	  // Sign-out successful.
+	  document.getElementById('sign_in_status').textContent = 'Zostałeś poprawnie wylogowany';
+	}).catch(function(error) {
+	  // An error happened.
+	});
+}			
 			
 var LoggedUser = "Niezalogowany";
 var LoggedUserName = "Niezalogowany";
