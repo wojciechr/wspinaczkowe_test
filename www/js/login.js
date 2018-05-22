@@ -320,6 +320,10 @@ function isUserEqual(googleUser, firebaseUser) {
 
 
 function init() {
+	document.addEventListener("deviceready",onDeviceReady, false);
+}	
+
+function onDeviceReady() {
 	loginFirebase();
 	loginFirebaseStatus();
 }			
