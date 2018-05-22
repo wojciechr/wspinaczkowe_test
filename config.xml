@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.android.drogiwspinaczkowe" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <configuration>
+        <version>1</version>
+        <system.webServer>
+            <httpProtocol>
+                <customHeaders>
+                    <add name="Access-Control-Allow-Origin" value="*" />
+                </customHeaders>
+            </httpProtocol>
+        </system.webServer>
+    </configuration>
+    <name>Drogi wspinaczkowe</name>
+    <icon src="climbing.png" />
+    <description>
+        Drogi wspinaczkowe mobile app
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+    <platform name="android">
+        <preference name="android-minSdkVersion" value="20" />
+        <preference name="android-targetSdkVersion" value="24" />
+        <allow-intent href="market:*" />
+        <preference name="AndroidLaunchMode" value="singleTask" />
+    </platform>
+    <universal-links>
+        <host name="https://w7t22.app.goo.gl/nM9x" scheme="https" />
+        <host name="drogi-wspinaczkowe.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback" />
+        </host>
+    </universal-links>
+    <plugin name="cordova-plugin-buildinfo" spec="^2.0.1" />
+    <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
+    <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
+    <plugin name="cordova-plugin-googleplus" source="npm" spec="5.2.1">
+    <variable name="WEB_APPLICATION_CLIENT_ID" value="81802368109-8pomelv41akmrkb2vrmu6fhuch8bet5s.apps.googleusercontent.com" />
+    <plugin name="cordova-plugin-facebook4" source="npm" spec="1.7.4">
+        <variable name="APP_ID" value="2065286753691545" />
+        <variable name="APP_NAME" value="Drogi wspinaczkowe" />
+        <variable name="ANDROID_SDK_VERSION" value="4.+" />
+    </plugin>
+    <engine name="android" spec="^7.0.0" />
+</widget>

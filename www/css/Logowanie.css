@@ -1,0 +1,195 @@
+/* data: 12052018 0135 */
+body, html {
+	height: 100%;
+	position: relative;
+	font-family: segoe UI, sans-serif, Arial;
+	color: #dbdbdb;
+	font-weight: 400;
+}
+
+nav.navbar {
+	position: sticky;
+	margin: 0 0 15px 0px;
+	top: 0px;
+	z-index: 1;
+	box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+}
+
+/* konfiguracja: "menu glowne" - niebieski */
+.navbar-inverse .navbar-nav > .active > a {
+	color: rgb(137, 172, 255);
+	background-color: #1b1b1b;
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover {
+	color: white;
+} /* konfiguracja: "menu glowne" - niebieski - koniec*/
+
+/* Przycis Back to menu */
+.box_back_btn {
+	box-sizing: border-box;
+	padding: 0 0 0 26px;
+	margin: auto 0px;
+}
+
+.styl_back_btn {
+	color: rgb(90, 90, 90);
+	padding: 1px 5px;
+	font-size: 12px;
+	border-radius: 3px;
+}
+
+.styl_back_btn:hover {
+	color: rgb(6, 255, 0);
+	background-color: rgb(218, 218, 218);
+}
+
+/* LOGOWANIE ------------------------ */
+.container_soc_all {
+	margin: auto 15px;
+	border: inherit;
+	border-radius: 5px;
+	padding: 0;
+}
+
+.container_soc {
+	position: inherit;
+	background-color: rgb(65, 65, 65);
+	padding: 0px 15px 15px;
+	border: 1px solid rgb(36, 36, 36);
+	border-radius: 5px;
+}
+
+/* style inputs and link buttons */
+input, .btn_soc {
+	width: 100%;
+	padding: 12px;
+	border: none;
+	border-radius: 5px;
+	margin: 5px 0;
+	display: inline-block;
+	font-size: 15px;
+	line-height: 20px;
+	text-decoration: none;
+}
+
+h5 {
+	text-align: center;
+	color: 9b9b9b;
+	margin: 15px 0 5px;
+	line-height: 1.5;
+	font-size: 15px;
+}
+
+/* przyciski stylizacja */
+.fb {
+	background-color: #3B5998;
+	color: #dedede;
+}
+
+.google {
+	background-color: #dd4b39;
+	color: #dedede;
+}
+
+input[type=text] {
+	border: solid 1px #d1d1d1;
+	border-radius: 5px;
+	color: #6e6e6e;
+}
+
+input[type=text]:hover {
+    box-shadow: inset 0 0px 5px 0px #11b300;
+	 color: #111;
+}
+
+input[type=password] {
+	border: solid 1px #d1d1d1;
+	border-radius: 5px;
+	color: #6e6e6e;
+}
+
+input[type=password]:hover {
+    box-shadow: inset 0 0px 5px 0px #11b300;
+	 color:#111;
+}
+
+input[type=submit] {
+	background-color: #4CAF50;
+	cursor: pointer;
+	color: rgb(255, 255, 255);
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+	box-shadow: rgb(255, 255, 255) 0px 0px 10px 0px;
+}
+
+/* przyciski social - hover */
+.btn_soc:focus, .btn_soc:hover {
+	color: #fff;
+	box-shadow: rgb(255, 255, 255) 0px 0px 10px 1px;
+	text-decoration: inherit;
+}
+
+
+/* Two-column layout */
+.col_soc {
+	width: 50%;
+	margin: auto;
+	margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row_soc:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg_soc {
+	display: none;
+}
+
+/* bottom container */
+.bottom-container_soc {
+	text-align: center;
+	border-radius: 5px;
+	background-color: #323232;
+	margin-top: 10px;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+	.col_soc {
+		width: 100%;
+		margin-top: 0;
+	}
+
+	/* show the hidden text on small screens */
+.hide-md-lg_soc {
+		display: block;
+		text-align: center;
+	}
+}
+
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 15px;
+	z-index: 99;
+	font-size: 10px;
+	border: none;
+	outline: none;
+	background-color: red;
+	color: white;
+	cursor: pointer;
+	padding: 6px;
+	border-radius: 10px;
+	}
+
+#myBtn:hover {
+	background-color: green;
+	}

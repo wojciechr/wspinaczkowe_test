@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<title>Piramida przejść v2</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<script src="../js/fusioncharts.js"></script>
+	<script src="../js/fusioncharts.charts.js"></script>
+	<script src="../js/Chart.bundle.js"></script>
+	<script src="../js/Chart.bundle.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-2.1.4.js"></script>
+	<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="../js/angular.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/font_awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/w3.css">
+	<link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" type="text/css" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css">
+	<link rel="stylesheet" type="text/css" href="../css/md_konfiguracja.css">
+
+<style>
+</style>
+</head>
+
+<body style="background-color: rgb(50, 50, 50);">
+
+<!-- Belka Menu header-->
+<nav class="navbar navbar-inverse" style="background-color: rgb(35,35,35);">
+	<div class="container-fluid">
+		
+		<!-- Nawigacja belka menu -->
+		<div class="navbar-header" style="display: flex; padding: 0; margin:0;">
+		
+			<!-- Przycisk Menu rozwijanego -->
+			<div style="float:none; box-sizing: border-box; background-clip: padding-box; padding: 0; margin: 0; max-width: 50%; width: 50px; text-align: left; line-height: normal;">
+				<button style="float:none;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<!-- Logo drogi wsp. -->
+			<div style="box-sizing: border-box; padding: 0; margin: auto;">
+				<h4 style="margin: 0; font-variant: small-caps;">Wykres - piramida 2</h4>
+			</div>
+			
+			<!-- przycisk back -->
+			<div style="margin: auto 0; padding: 0 0 0 26px;">
+				<a href="">
+					<button class="btn btn-xs" onclick="window.history.back()" type="button"><span class="glyphicon glyphicon-chevron-left"></span></button>
+				</a>
+			</div>
+		</div>
+		
+		<!-- Menu rozwijane -->
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active";><a href="../homeDW.html"><span style="padding-right: 10px;" class="glyphicon glyphicon-menu-hamburger"></span>Menu główne</a></li>
+				<hr style="margin: 0 auto;width: 92%;border-top: 1px solid;color: rgb(0, 0, 0);">
+				<hr style="margin: 0 auto;width: 92%;border-top: 1px solid;color: rgb(56, 56, 56);">
+
+				<li><a href="../html/md_dodaj_droge.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-road"></span>Dodaj drogę</a></li>
+				<li><a href="../html/md_wyszukaj_wsz_drogi.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-search"></span>Wyszukaj wszystkie drogi</a></li>
+				<li><a href="../html/md_prze_swo_drogi.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-zoom-in"></span>Przeglądaj swoje drogi</a></li>
+				<li><a href="../html/md_piramida.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-picture"></span>Piramida przejść</a></li>
+
+
+			</ul>
+		</div>
+		<!-- koniec menu rozwijane  -->
+  </div>
+</nav>
+
+
+<!-- Animacja menu Accordeon -->
+<div class="content w3-animate-left">
+		
+<!-- CONTENT *************************           ************* -->
+		<div class="content_opt_piramida;">
+			<div id="chart-container" style="text-align: center;">wykres</div>
+		</div>             
+         
+
+	</div> <!-- Koniec - Animacja menu Accordeon -->
+</div> <!-- Koniec - Animacja menu Accordeon -->
+
+<script>
+FusionCharts.ready(function () {
+    var revenueChart = new FusionCharts({
+        type: 'stackedbar2d',
+        renderAt: 'chart-container',
+        width: '360',
+        height: '550',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Bla bla bla",
+                "subCaption": "Tomasz Romanowicz",
+                "xAxisname": "Skala Y",
+                "yAxisName": "Skala X",
+                "numberPrefix": "",
+                "paletteColors": "#0075c2,#1aaf5d,#fc0000",
+                "bgColor": "#ffffff",
+                "borderAlpha": "20",
+                "showCanvasBorder": "0",
+                "usePlotGradientColor": "0",
+                "plotBorderAlpha": "10",
+                "legendBorderAlpha": "0",
+                "legendShadow": "1",
+                "valueFontColor": "#ffffff",                
+                "showXAxisLine": "1",
+                "xAxisLineColor": "#999999",
+                "divlineColor": "#999999",               
+                "divLineIsDashed": "1",
+                "showAlternateVGridColor": "0",
+                "subcaptionFontBold": "0",
+                "subcaptionFontSize": "10",
+                "showHoverEffect":"1",
+                
+            },
+            "categories": [
+                {
+                    "category": [
+                        {
+                            "label": "9c"
+                        },
+                        {
+                            "label": "9b+"
+                        },
+                        {
+                            "label": "9b"
+                        },
+                        {
+                            "label": "9a+"
+                        },
+                        {
+                            "label": "9a"
+                        },
+                        {
+                            "label": "8c+"
+                        },
+                        {
+                            "label": "8c"
+                        },
+                        {
+                            "label": "8b+"
+                        },
+                        {
+                            "label": "8b"
+                        }
+                    ]
+                }
+            ],
+            "dataset": [
+                {
+                    "seriesname": "Kategoria 1",
+                    "data": [
+                        {
+                            "value": "121"
+                        },
+                        {
+                            "value": "135"
+                        },
+                        {
+                            "value": "123"
+                        },
+                        {
+                            "value": "74"
+                        },
+                        {
+                            "value": "678"
+                        },
+                        {
+                            "value": "1244"
+                        },
+                        {
+                            "value": "99"
+                        },
+                        {
+                            "value": "654"
+                        },
+                        {
+                            "value": "678"
+                        }
+                    ]
+                },
+                {
+                    "seriesname": "Kategoria 2",
+                    "data": [
+                        {
+                            "value": "1314"
+                        },
+                        {
+                            "value": "1548"
+                        },
+                        {
+                            "value": "983"
+                        },
+                        {
+                            "value": "1318"
+                        },
+                        {
+                            "value": "145"
+                        },
+                        {
+                            "value": "876"
+                        },
+                        {
+                            "value": "344"
+                        },
+                        {
+                            "value": "1222"
+                        },
+                        {
+                            "value": "122"
+                        }
+                    ]
+                },
+                {
+                    "seriesname": "Kategoria 3",
+                    "data": [
+                        {
+                            "value": "223"
+                        },
+                        {
+                            "value": "490"
+                        },
+                        {
+                            "value": "987"
+                        },
+                        {
+                            "value": "334"
+                        },
+                        {
+                            "value": "667"
+                        },
+                        {
+                            "value": "556"
+                        },
+                        {
+                            "value": "700"
+                        },
+                        {
+                            "value": "1288"
+                        },
+                        {
+                            "value": "399"
+                        }
+                    ]
+                }
+            ]
+        }
+    }).render();    
+});
+</script>
+
+</body>
+</html>

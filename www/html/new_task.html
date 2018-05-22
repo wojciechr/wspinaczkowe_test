@@ -1,0 +1,56 @@
+<ons-page id="newTaskPage">
+  <ons-toolbar>
+    <div class="left"><ons-back-button>Do menu</ons-back-button></div>
+    <div class="center">Nowe zadanie</div>
+    <div class="right">
+      <ons-if platform="android">
+        <ons-toolbar-button component="button/save-task">
+          <ons-icon icon="md-save"></ons-icon>
+        </ons-toolbar-button>
+      </ons-if>
+    </div>
+  </ons-toolbar>
+
+  <ons-list-title>Dodaj zadanie</ons-list-title>
+  <ons-list>
+    <ons-list-item modifier="nodivider">
+      <div class="center">
+        <ons-input id="title-input" type="text" placeholder="Nazwij zadanie ..." float></ons-input>
+      </div>
+    </ons-list-item>
+    <ons-list-item modifier="nodivider">
+      <div class="center">
+        <ons-input id="category-input" type="text" placeholder="Kategoria" float></ons-input>
+      </div>
+    </ons-list-item>
+    <ons-list-item modifier="nodivider">
+      <div class="center">
+        <ons-input id="description-input" type="text" placeholder="Opis zadania" float></ons-input>
+      </div>
+    </ons-list-item>
+  </ons-list>
+
+  <ons-list-title>Pozostałe opcje</ons-list-title>
+  <ons-list>
+    <ons-list-item modifier="nodivider">
+      <label class="center" for="inner-highlight-input">
+        Podświetlić?
+      </label>
+      <div class="right">
+        <ons-switch id="highlight-input" input-id="inner-highlight-input"></ons-switch>
+      </div>
+    </ons-list-item>
+    <ons-list-item modifier="nodivider">
+      <label class="center" for="inner-urgent-input">
+        Pilne?
+      </label>
+      <div class="right">
+        <ons-switch id="urgent-input" input-id="inner-urgent-input"></ons-switch>
+      </div>
+    </ons-list-item>
+  </ons-list>
+
+  <ons-if platform="ios other">
+    <ons-button modifier="large" component="button/save-task">Dodaj zadanie</ons-button>
+  </ons-if>
+</ons-page>

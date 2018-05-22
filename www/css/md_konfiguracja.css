@@ -1,0 +1,127 @@
+/* data: 18052018 0507 */
+body, html {
+	height: 100%;
+	position: relative;
+	font-family: segoe UI, sans-serif, Arial;
+	color: rgb(230, 230, 230);
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 5px 0;
+}
+
+/* wielkosc czionek */
+h3 {font-size: 21px;}
+h4 {font-size: 19px; font-weight: 400;}
+h5 {font-size: 15px; font-weight: 400;}
+
+
+nav.navbar {
+	position: sticky;
+	margin: 0 0 15px 0px;
+	top: 0px;
+	z-index: 1;
+	box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+}
+
+.navbar-inverse .navbar-nav > li > .mdw_a {
+	color: #6bcf60;
+	padding: 10px 15px 10px 42px;
+	margin: 0;
+	line-height: 1;
+	font-weight: 300;
+}
+
+/* konfiguracja: "menu glowne" - niebieski */
+.navbar-inverse .navbar-nav > .active > a {
+	color: rgb(137, 172, 255);
+	background-color: #1b1b1b;
+}
+
+.content {
+	position: relative;
+
+	justify-content: center;
+	align-content: center;
+	padding: 0 0 1px 0;
+	outline: 0;
+
+
+	box-sizing: inherit;
+}
+
+.content_opt {
+	margin: 15px;
+	padding: 15px;
+	border: 1px solid rgb(36, 36, 36);
+	border-radius: 5px;
+	background-color: rgb(65, 65, 65);
+}
+
+.contenet_opt_piramida {
+	margin: 0;
+	padding: 0;
+	border-radius: 20px;
+}
+
+.contenet_one_opt {
+	margin: 0 0 5px 0;
+}
+
+output {
+	padding: 5px 10px;
+	font-size: 15px;
+	line-height: 15px;
+	color: #e1e1e1;
+	border: 1px solid #ddd8d8;
+	border-radius: 5px;
+	text-align: center;
+	width: 100px;
+}
+
+input, select {
+	color: #777;
+}
+
+input[type="checkbox"], input[type="radio"] {
+	display: inline-block;
+	margin: 10px 5px 0 0;
+	position: unset;
+}
+
+input[type="number"] {
+	padding: 0;
+	
+}
+
+label {
+	max-width: 100%;
+	margin-bottom: 0;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+button {
+	color: #333;
+}
+
+.btn:hover{
+	color: #00ff27;
+	text-decoration: none;
+	background-color: rgb(168, 168, 168);
+}
+
+.przycisk-cont:hover {
+	background-color: rgb(255, 255, 255);
+	color: green;
+	border-radius: 5px;
+	padding: 0 10px;
+}
+
+.checkbox, .radio {
+    position: relative;
+    display: block;
+    margin: 10px 10px 10px 0px;
+}

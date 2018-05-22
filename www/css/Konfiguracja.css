@@ -1,0 +1,98 @@
+/* data: 10052018 2221 */
+body, html {font-family: "Segoe UI", 'Helvetica', 'Arial', sans-serif; font-weight: 400; }
+
+body, html {
+	height: 100%;
+	list-style: none;
+	line-height: 1;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+/* wielkosc czionek */
+h3 {font-size: 21px;}
+h4 {font-size: 20px; font-weight: 400;}
+h5 {font-size: 15px; font-weight: 400;}
+
+.content_all {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	
+	padding: 0;
+	
+	justify-content: center;
+	align-items: center;
+	background-color: inherit;
+	z-index: 10;
+}
+
+.content {
+	position: relative;
+	width: unset;
+	min-height: 94%;
+	margin: 5%;
+	padding: 0 0 1px 0;
+	outline: 0;
+	border-radius: 10px;
+	background-color: #fff;
+	box-sizing: inherit;
+	box-shadow: rgba(0, 0, 0, 1) 0px 5px 10px 0px, rgba(0, 0, 0, 1) 0px 5px 20px 0px;
+}
+
+.content_opt {
+	padding: 10px;
+	border: 1px solid grey;
+	border-radius: 5px;
+	margin: 10px 10px 10px 10px;
+}
+
+.contenet_one_opt {
+	margin: 0;
+}
+
+output {
+	display: initial;
+	padding: 5px 25px;
+	font-size: 14px;
+	line-height: 1;
+	color: #555;
+	border: 1px solid #ddd8d8;
+	border-radius: 10px;
+	text-align: center;
+	
+}
+
+input, input[type="checkbox"], input[type="radio"] {
+	display: inline-block;
+	margin: 10px 5px 0 0;
+	position: unset;
+}
+
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+.btn {
+	color:rgb(100, 100, 100)
+}
+
+.btn:hover {
+	color: #00ff27;
+	text-decoration: none;
+	background-color: rgb(168, 168, 168);
+}
+
+.checkbox, .radio {
+	position: relative;
+	display: block;
+	margin: 10px 10px 10px 0px;
+}

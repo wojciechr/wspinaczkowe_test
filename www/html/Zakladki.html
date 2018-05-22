@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<title>Zakładki</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+	<script src="../js/jquery-1.11.0.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/Sortable.min.js"></script>
+<!--	<script src="../js/bootstrap.js"></script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/firebase.js"></script>
+	<script src="../js/firebase-auth.js"></script>
+	
+	<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="../js/cordova.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-database.js"></script>	-->
+
+	
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">	
+	<link rel="stylesheet" type="text/css" href="../css/w3.css">
+	<link rel="stylesheet" type="text/css" href="../css/font_awesome/css/font-awesome.min.css">
+	<!--<link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.5.min.css">
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css">  -->
+
+
+<style>
+body, html {
+	color: rgb(230, 230, 230);
+	font-family: segoe UI, sans-serif, arial;
+}
+
+h1,h2,h3,h4,h5,h6 {margin: 10px 0; text-align: center; }
+h4 {font-size:20px;}
+h5 {font-size: 15px; font-weight: 400;}
+
+/* Header - navbar */
+nav.navbar {
+	position: sticky;
+	top: 0px;
+	z-index: 1;
+	box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+}
+
+/* przycisk dodawania zakladaek*/
+button {
+	color: black;
+	border-radius: 5px;
+	padding: 0 15px;
+	font-size: 12px;
+}
+
+button:hover {
+	color: red;
+}
+
+.navbar {
+	margin-bottom: 15px;
+}
+
+/* "menu glowne" - niebieski */
+.navbar-inverse .navbar-nav > .active > a {
+	color: rgb(137, 172, 255);
+	background-color: #1b1b1b;
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover {
+	color: white;
+} /* "menu glowne" - niebieski - koniec */
+/* Koniec Header - navbar */
+
+.container_DW {
+	margin: auto 15px;
+	padding: 0;
+	border: inherit;
+	border-radius: 5px;
+	border: 1px solid rgb(80, 80, 80);
+}
+
+.content_DW {
+	padding: 10px 15px;
+	text-align: justify;
+	border: 1px solid rgb(36, 36, 36);
+	border-radius: 5px;
+	background-color: rgb(65, 65, 65);
+}
+
+/* konfig tabs */
+#tab-list .close{
+	margin-left: 9px;
+	color: green;
+}
+
+
+.close {
+	color: black;
+	opacity: 1;
+}
+
+.nav > li > a {
+	margin-top: 2px;
+	padding: 5px 10px;
+}
+
+
+
+/* Przycis Back to menu */
+.styl_back_btn {
+	color: rgb(90, 90, 90);
+	padding: 1px 5px;
+	font-size: 12px;
+	border-radius: 3px;
+}
+
+.styl_back_btn:hover {
+	color: rgb(6, 255, 0);
+	background-color: rgb(150, 150, 150);
+}
+/* Koniec Przycis Back to menu */
+
+/* Scroll up */
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 15px;
+	z-index: 99;
+	font-size: 10px;
+	border: none;
+	outline: none;
+	background-color: red;
+	color: white;
+	cursor: pointer;
+	padding: 6px;
+	border-radius: 10px;
+}
+
+#myBtn:hover {
+	background-color: green;
+}
+/* Koniec Scroll up */
+</style>
+</head>
+
+<body style="background-color: rgb(50, 50, 50);">
+
+<!-- Menu header -->
+<nav class="navbar navbar-inverse" style="background-color: rgb(35, 35, 35);">
+	<div class="container-fluid">
+	
+		<!-- Nawigacja belka menu -->
+		<div class="navbar-header" style="display: flex; padding: 0; margin:0;">
+		
+			<!-- Przycisk Menu rozwijanego -->
+			<div style="float:none; box-sizing: border-box; background-clip: padding-box; padding: 0; margin: 0; max-width: 50%; width: 50px; text-align: left; line-height: normal;">
+				<button style="float:none;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+		  
+			<!-- Logo drogi wsp. -->
+			<div style="box-sizing: border-box; background-clip: padding-box; padding: 0; margin: auto;">
+				<h4 style="margin: 0; font-variant: small-caps;">Zakładki</h4>
+			</div>
+		  
+			<!-- przycisk back -->
+			<div style="box-sizing: border-box; padding: 0 0 0 26px; margin: auto 0px;">
+			<button onclick="window.history.back()" type="button" class="btn btn-xs styl_back_btn"><span class="glyphicon glyphicon-chevron-left"></span></button>
+			</div>
+		</div>
+		
+		<!-- Menu rozwijane -->
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav navbar-right">
+			
+
+				<hr style="margin: 0 auto;width: 92%;border-top: 1px solid;color: rgb(0, 0, 0);">
+				<hr style="margin: 0 auto;width: 92%;border-top: 1px solid;color: rgb(56, 56, 56);">
+			</ul>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="../homeDW.html"><span style="padding-right: 10px" class="glyphicon glyphicon-menu-hamburger"></span>Menu główne</a></li>
+			</ul>
+		</div> <!-- koniec menu rozwijane  -->
+		
+  </div>
+</nav>
+
+<!-- Animacja menu Accordeon -->
+<div class="content w3-animate-bottom">
+
+<!-- Zakladka -->
+<!-- <div class="content_DW"></div> -->
+	<div class="container_DW">
+
+		<div class="row">
+		  <div class="col-md-12">
+		  <!-- Nav tabs -->
+		  <ul id="tab-list" class="nav nav-tabs" _role="tablist">
+				<li class="active"><a href="#tab1" role="tab" data-toggle="tab">Zakładka 1</a></li>
+		  </ul>
+
+		  <!-- Tab panes -->
+		  <div id="tab-content" class="tab-content">
+				<div class="tab-pane fade in active" id="tab1">
+				<p style="margin:5px 0; padding:0;">
+				<textarea style="max-width: 100%; margin-top: 10px;" class="form-control" rows="5" id="Notes">Dodaj zakładkę 2, 3 i  przenies w inne miejsce </textarea></p>
+				</div>
+		  </div>
+		  <p style="margin:5px 0; padding:0; text-align: center;">
+		  <button id="btn-add-tab" type="button" class_="pull-centre" >Dodaj zakładkę</button>
+		  </p>
+		  </div>
+		</div>
+	</div>
+	
+
+</div> <!-- Koniec - Animacja menu Accordeon -->
+
+<!-- tabsy -->
+<script type="text/javascript">
+$(document).ready(function () {
+    var zakladkaID = 1;
+    $('#btn-add-tab').click(function () {
+        zakladkaID++;
+        $('#tab-list').append($('<li><a href="#tab' + zakladkaID + '" role="tab" data-toggle="tab">Zakładka ' + zakladkaID + '<button class="close" type="button" title="Usuń zakładkę">×</button></a></li>'));
+        $('#tab-content').append($('<div class="tab-pane fade" id="tab' + zakladkaID + '"><h5>Zakładka '+ zakladkaID +'</h5> <p><textarea style="max-width:100%;" class="form-control" rows="5" id="Notes">Przenieś tą zakładkę</textarea></p></div>'));
+    });
+    $('#tab-list').on('click','.close',function(){
+        var zakladkaID = $(this).parents('a').attr('href');
+        $(this).parents('li').remove();
+        $(zakladkaID).remove();
+
+        //display first tab
+        var tabFirst = $('#tab-list a:first');
+        tabFirst.tab('show');
+    });
+    
+    var list = document.getElementById("tab-list");
+    new Sortable(list);
+
+});
+</script>
+<!-- Koniec tabsy -->
+
+<!-- Przycisk skrola UP -->
+<button onclick="topFunction()" id="myBtn" title="Powrót do góry">Do góry</button>
+<script>
+// Po skrolu 25
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// Po kliknieciu
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+</html>

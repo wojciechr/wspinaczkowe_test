@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<title>Konfiguracja</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/font_awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/w3.css">
+	<link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" type="text/css" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css">
+	<link rel="stylesheet" type="text/css" href="../css/Konfiguracja.css">
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-2.1.4.js"></script>
+	<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="../js/angular.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-database.js"></script>
+<style>
+
+</style>
+</head>
+
+<body style="background-color: rgb(50, 50, 50);">
+
+<!-- Animacja menu Accordeon -->
+<div class="content w3-animate-zoom">
+		
+		<!-- Header -->
+      <header style="display: flex; padding: 0 15px; background-color: rgb(8, 138, 0); color: white; box-shadow: rgba(0, 0, 0, 1) 0px 0px 5px 0px; border: 1px solid rgb(6, 99, 0); border-radius: 10px 10px 0 0;">
+		
+			<!-- lewy box -->
+			<div style="box-sizing: border-box; width: 50px; height: 50px;"></div>
+			
+			<!-- Logo -->
+			<div style="box-sizing: border-box; background-clip: padding-box; padding: 0; margin: auto;">
+				<h4 style="margin: 0;">Konfiguracja</h4>
+			</div>
+			
+			<!-- przycisk Back -->
+			<div style="margin: auto 0; padding: 0 0 0 26px;">
+				<a href="">
+					<button class="btn btn-xs" onclick="window.history.back()" type="button"><span class="glyphicon glyphicon-chevron-left"></span></button>
+				</a>
+			</div>
+      </header>
+
+<!-- CONTENT ************************* -->
+		<div class="content_opt">
+			<h5>Opcje podstawowe:</h5>
+			<form action="/action_page.php"
+			oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+			+1 <input type="range" id="a" name="a" value="100" style="display: inline; width: 80%; margin: 10px 0; vertical-align: middle;"> <br>
+			<input type="number" id="b" name="b" value="50"> <output name="x" for="a b">wynik</output>
+			</form>
+		</div>
+		
+		<div class="content_opt">
+			<h5>Opcje dodatkowe:</h5>
+			<div class="contenet_one_opt" ng-app="">
+				<form>
+				Otworz:
+					<input type="checkbox" ng-model="myVar">
+				</form>
+				<div ng-show="myVar">
+					<p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Jakis text" required name="Name"></p>
+					<p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="Ile aaaa bbbb" required name="People"></p>
+					<p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="zzzz kkkkk"></p>
+					<p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="aaa bbb ccc" required name="Message"></p>
+					<p><button class="w3-button" type="submit">zzzz</button></p>
+				</div>
+				<div class="">
+					<label><input type="radio" name="optradio">Opcja 1</label>
+				</div>
+				<div class="">
+					<label><input type="radio" name="optradio">Opcja 2</label>
+				</div>
+				<div class="">
+					<label><input type="radio" name="optradio" disabled>Opcja 3</label>
+				</div> 
+			</div>
+
+			<form>
+			 <div class="form-group">
+				<label for="sel1">Wybor opcji</label>
+				<select class="form-control" id="sel1">
+				  <option>1</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				</select>
+				<br>
+			 </div>
+			</form>
+		
+		</div>
+
+		<div class="content_opt">
+			<h5>Pozostałe opcje:</h5>
+			<p><input required="" name="People" placeholder="How many people" class="input" type="number"></p>
+			<div class="contenet_one_opt" ng-app="">
+				<div class="">
+				  <label><input type="checkbox" value="">Option 2</label>
+				</div>
+				<div class="">
+				  <label><input type="checkbox" value="" disabled>Option 3</label>
+				</div>
+			</div>
+
+		  
+		</div>
+		
+  </div>
+</div>
+
+
+
+</body>
+</html>

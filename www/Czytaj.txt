@@ -1,0 +1,2 @@
+Ze wszystkich dostę[pnych przegladarek najlepiej do jako takiego sprawdzenia efektów pracy z aplikacjami mobilnymi nadaje się FireFox.
+Opcja kombinacji klawiszy CTRL + SHIFT + M przełącza w tryb mobilny. Potem wybieramy urzadzenie np. Nexus 5.

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<title>Piramida przejść</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<script src="../js/Chart.bundle.js"></script>
+	<script src="../js/Chart.bundle.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-2.1.4.js"></script>
+	<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="../js/angular.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/font_awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/w3.css">
+	<link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" type="text/css" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css">
+	<link rel="stylesheet" type="text/css" href="../css/md_konfiguracja.css">
+
+<style>
+</style>
+</head>
+
+<body style="background-color: rgb(50, 50, 50);">
+
+<!-- Belka Menu header-->
+<nav class="navbar navbar-inverse" style="background-color: rgb(35,35,35);">
+	<div class="container-fluid">
+		
+		<!-- Nawigacja belka menu -->
+		<div class="navbar-header" style="display: flex; padding: 0; margin:0;">
+		
+			<!-- Przycisk Menu rozwijanego -->
+			<div style="float:none; box-sizing: border-box; background-clip: padding-box; padding: 0; margin: 0; max-width: 50%; width: 50px; text-align: left; line-height: normal;">
+				<button style="float:none;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<!-- Logo drogi wsp. -->
+			<div style="box-sizing: border-box; padding: 0; margin: auto;">
+				<h4 style="margin: 0; font-variant: small-caps;">Wykres - piramida</h4>
+			</div>
+			
+			<!-- przycisk back -->
+			<div style="margin: auto 0; padding: 0 0 0 26px;">
+				<a href="">
+					<button class="btn btn-xs" onclick="window.history.back()" type="button"><span class="glyphicon glyphicon-chevron-left"></span></button>
+				</a>
+			</div>
+		</div>
+		
+		<!-- Menu rozwijane -->
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active";><a href="../homeDW.html"><span style="padding-right: 10px;" class="glyphicon glyphicon-menu-hamburger"></span>Menu główne</a></li>
+				<hr style="margin: 0 auto;width: 92%;border-top: 1px solid;color: rgb(0, 0, 0);">
+				<hr style="margin: 0 auto;width: 92%;border-top: 1px solid;color: rgb(56, 56, 56);">
+
+				<li><a href="../html/md_dodaj_droge.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-road"></span>Dodaj drogę</a></li>
+				<li><a href="../html/md_wyszukaj_wsz_drogi.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-search"></span>Wyszukaj wszystkie drogi</a></li>
+				<li><a href="../html/md_prze_swo_drogi.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-zoom-in"></span>Przeglądaj swoje drogi</a></li>
+
+				<li><a href="../html/md_piramida_v2.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-picture"></span>Piramida przejść v2</a></li>
+
+			</ul>
+		</div>
+		<!-- koniec menu rozwijane  -->
+  </div>
+</nav>
+
+
+<!-- Animacja menu Accordeon -->
+<div class="content w3-animate-left">
+		
+<!-- CONTENT ************************* 
+		<div class="content_opt">
+        
+		</div>         *************-->
+		<canvas id="myChart" width="400" height="400"></canvas>
+
+	</div> <!-- Koniec - Animacja menu Accordeon -->
+</div> <!-- Koniec - Animacja menu Accordeon -->
+
+<script>
+	var barOptions_stacked = {
+		 tooltips: {
+			  enabled: false
+		 },
+		 hover :{
+			  animationDuration:0
+		 },
+		 scales: {
+			  xAxes: [{
+					ticks: {
+						 beginAtZero:true,
+						 fontFamily: "'Open Sans Bold', sans-serif",
+						 fontSize:11
+					},
+					scaleLabel:{
+						 display:false
+					},
+					gridLines: {
+					},
+					stacked: true
+			  }],
+			  yAxes: [{
+					gridLines: {
+						 display:false,
+						 color: "#fff",
+						 zeroLineColor: "#fff",
+						 zeroLineWidth: 0
+					},
+					ticks: {
+						 fontFamily: "'Open Sans Bold', sans-serif",
+						 fontSize:11
+					},
+					stacked: true
+			  }]
+		 },
+		 legend:{
+			  display:false
+		 },
+
+		 animation: {
+			  onComplete: function () {
+					var chartInstance = this.chart;
+					var ctx = chartInstance.ctx;
+					ctx.textAlign = "left";
+					ctx.font = "9px Open Sans";
+					ctx.fillStyle = "#fff";
+
+					Chart.helpers.each(this.data.datasets.forEach(function (dataset, i) {
+						 var meta = chartInstance.controller.getDatasetMeta(i);
+						 Chart.helpers.each(meta.data.forEach(function (bar, index) {
+							  data = dataset.data[index];
+							  /*
+					if(i==0){
+									ctx.fillText(data, 50, bar._model.y+4);
+							  } else {
+									ctx.fillText(data, bar._model.x-25, bar._model.y+4);
+							  }
+					*/
+						 }),this)
+					}),this);
+			  }
+		 },
+		 pointLabelFontFamily : "Quadon Extra Bold",
+		 scaleFontFamily : "Quadon Extra Bold",
+	};
+
+	var ctx = document.getElementById("myChart");
+	var myChart = new Chart(ctx, {
+		 type: 'horizontalBar',
+		 data: {
+			  labels: ["9c", "9b+", "9b", "9a+", "9a", "8c+", "8c"],
+
+			  datasets: [{
+					data: [1, 3, 18, 35, 95, 119, 105],
+					backgroundColor: "rgba(63,103,126,1)",
+					hoverBackgroundColor: "rgba(50,90,100,1)"
+			  },{
+					data: [0, 0, 0, 1, 2, 1, 1],
+					backgroundColor: "rgba(163,103,126,1)",
+					hoverBackgroundColor: "rgba(140,85,100,1)"
+			  },{
+					data: [0, 0, 0, 0, 3, 18, 58],
+					backgroundColor: "rgba(63,203,226,1)",
+					hoverBackgroundColor: "rgba(46,185,235,1)"
+			  }]
+		 },
+
+		 options: barOptions_stacked,
+	});
+</script>
+
+
+</body>
+</html>

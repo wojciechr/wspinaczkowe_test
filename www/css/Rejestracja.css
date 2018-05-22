@@ -1,0 +1,160 @@
+body, html {
+	height: 100%;
+	position: relative;
+	font-family: segoe UI, sans-serif, Arial;
+	color: rgb(230, 230, 230);
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {margin: 10px 0; text-align: center;} 
+h5 {line-height: 1.5; font-weight: 400; font-size: 15px;}
+
+nav.navbar {
+	position: sticky;
+	margin: 0 0 15px 0px;
+	top: 0px;
+	z-index: 1;
+	box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+}
+
+/* "menu glowne" - niebieski */
+.navbar-inverse .navbar-nav > .active > a {
+	color: rgb(137, 172, 255);
+	background-color: #1b1b1b;
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover {
+	color: white;
+} /* "menu glowne" - niebieski - koniec */
+
+/* Przycis Back to menu */
+.styl_back_btn {
+	color: rgb(90, 90, 90);
+	padding: 1px 5px;
+	font-size: 12px;
+	border-radius: 3px;
+}
+
+.styl_back_btn:hover {
+	color: rgb(6, 255, 0);
+	background-color: rgb(150, 150, 150);
+}
+/* Koniec Przycis Back to menu */
+
+/* REJESTRACJA ------------------------ */
+.container_DW {
+	margin: auto 15px;
+	padding: 0;
+	border: inherit;
+	border-radius: 5px;
+	border: 1px solid rgb(80, 80, 80);
+}
+
+.content_DW {
+	padding: 15px;
+	text-align: justify;
+	border: 1px solid rgb(36, 36, 36);
+	border-radius: 5px;
+	background-color: rgb(65, 65, 65);
+}
+
+* {box-sizing: border-box;}
+
+#regForm {
+	border-radius: 5px;
+}
+
+.opis_input {
+	margin: 0 0 5px 0;
+	padding: 0;
+	font-style: italic;
+	font-size: 13px;
+	color: rgb(168, 168, 168);
+}
+
+input {
+	padding: 10px;
+	margin: 0;
+	width: 100%;
+	font-size: 15px;
+	border: 1px solid #d1d1d1;
+	border-radius: 5px;
+	color: #808080;
+	}
+
+/* stylizacja jak error */
+input.invalid {
+	background-color: #ffdddd;
+}
+	
+input:hover {
+	box-shadow: inset 0 0px 5px 0px #11b300;
+	color: #111;
+}
+
+/* Hide all steps by default: */
+.tab {
+	display: none;}
+
+.cont_prev_next_btn {
+	text-align: center;
+	margin: 30px 0 0 0;
+}
+	
+/* przycisk powrotu do menu */
+.dalejbutton {
+	background-color: #4CAF50;
+	color: #efefef;
+	border-radius: 5px;
+	border: none;
+	padding: 7px 11px;
+	font-size: 15px;
+	cursor: pointer;
+	width: 37%;
+}
+
+.dalejbutton:hover {
+	box-shadow: rgb(255, 255, 255) 0px 0px 10px 0px;
+	color: #ffffff;
+}
+
+#prevBtn {
+	background-color: #bbbbbb;}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbbbbb;
+	border: none;  
+	border-radius: 50%;
+	display: inline-block;
+	opacity: 0.5;}
+
+.step.active {
+	opacity: 1;}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+	background-color: #4CAF50;}
+	
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 15px;
+	z-index: 99;
+	font-size: 10px;
+	border: none;
+	outline: none;
+	background-color: red;
+	color: white;
+	cursor: pointer;
+	padding: 6px;
+	border-radius: 10px;
+	}
+
+#myBtn:hover {
+	background-color: green;
+	}

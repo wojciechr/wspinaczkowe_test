@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<title>Logowanie</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="../css/font_awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="../css/w3.css">
+
+	<link rel="stylesheet" type="text/css" href="../css/Logowanie.css">
+	<!--<script src="../js/bootstrap.min.js"></script>-->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+	<script src="../js/firebase_conf.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script type="text/javascript" src="../js/index.js"></script>
+
+<style>
+</style>
+</head>
+
+<body onload="init()" style="background-color: rgb(50, 50, 50);">
+<script src="../js/login.js"></script>
+
+
+	
+
+
+<!-- Belka Menu -->
+<nav class="navbar navbar-inverse" style="background-color: rgb(35, 35, 35);">
+	<div class="container-fluid">
+	
+		<!-- Nawigacja belka menu -->
+		<div class="navbar-header" style="display: flex; padding: 0; margin:0;">
+
+			<!-- Przycisk Menu rozwijanego -->
+			<div style="float:none; box-sizing: border-box; background-clip: padding-box; padding: 0; margin: 0; max-width: 50%; width: 50px; text-align: left; line-height: normal;">
+				<button style="float:none;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+		  
+			<!-- Logo drogi wsp. -->
+			<div style="box-sizing: border-box; background-clip: padding-box; padding: 0; margin: auto;">
+				<h4 style="margin: 0; font-variant: small-caps;">Logowanie</h4>
+			</div>
+		  
+			<!-- przycisk back -->
+			<div class="box_back_btn">
+			<button onclick="window.history.back()" type="button" class="btn btn-xs styl_back_btn"><span class="glyphicon glyphicon-chevron-left"></span></button>
+			</div>
+		</div>
+		
+		<!-- Menu rozwijane -->
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="../html/Rejestracja.html"><span style="padding-right: 10px" class="glyphicon glyphicon-user"></span>Zarejestruj</a></li>
+				<hr style="margin: 0 auto;width: 92%;border-top: 1px solid;color: rgb(0, 0, 0);">
+				<hr style="margin: 0 auto;width: 92%;border-top: 1px solid;color: rgb(56, 56, 56);">
+			</ul>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="../homeDW.html"><span style="padding-right: 10px" class="glyphicon glyphicon-menu-hamburger"></span>Menu główne</a></li>
+			</ul>
+		</div> <!-- koniec menu rozwijane  -->
+		
+  </div>
+</nav>
+
+<!-- Animacja menu Accordeon -->
+<div class="content w3-animate-bottom">
+
+<!-- Logowanie social -->
+	     <div class="container" id="login">
+		    <h3 class="form-signin-heading"><center>Logowanie</center></h3>
+			  <hr class="colorgraph"><br>
+			  <div id="login_div">
+			  <input type="email" class="form-control" name="E-mail" placeholder="E-mail" required="" id="email_field" />     
+			  <br>
+			  <input type="password" class="form-control" name="Password" placeholder="Hasło" required="" id="password_field"/>  
+			  <br>
+			<button onclick="login()" class="btn btn-lg btn-primary btn-block">Logowanie</button>
+			<button onclick="register()" class="btn btn-lg btn-primary btn-block">Rejestracja</button>
+			  </div>
+			  <div id="user_div">
+			  <p id="user_para"> <h3> Witaj</h3></p>
+			  <button onclick="logout()" class="btn btn-lg btn-primary btn-block">Wylogowanie</button>
+			  </div>
+			  <div><center><b><span id="sign_in_status">Jesteś niezalogowany</span></b></center></div>
+
+		    <h3 class="form-signin-heading"><center>Lub</center></h3>
+			  
+	 <div class="row"> 
+	 
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <button type "button" id="loginfacebook" class="btn btn-lg btn-primary btn-block">Facebook</button>
+		  
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <button type "button" id="logingoogle" class="btn btn-lg btn-primary btn-block">Google</button>
+        </div>
+		
+
+	  <a href="#" style="color:white" class="style_soc">Zapomniałeś hasła?</a>
+	  </div>
+	  </div>
+
+</div> <!-- Koniec - Animacja menu Accordeon -->
+
+<!-- Przycisk skrola -->
+<button onclick="topFunction()" id="myBtn" title="Powrót do góry">Do góry</button>
+
+
+<script>
+
+
+
+// Po skrolu 25
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// Po kliknieciu
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+</script>
+</body>
+</html>

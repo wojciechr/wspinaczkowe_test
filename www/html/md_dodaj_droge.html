@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<title>Dodaj drogę</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-2.1.4.js"></script>
+	<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="../js/angular.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/font_awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/w3.css">
+	<link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" type="text/css" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css">
+	<link rel="stylesheet" type="text/css" href="../css/md_konfiguracja.css">
+
+<style>
+</style>
+</head>
+
+<body style="background-color: rgb(50, 50, 50);">
+
+<!-- Belka Menu header-->
+<nav class="navbar navbar-inverse" style="background-color: rgb(35,35,35);">
+	<div class="container-fluid">
+		
+		<!-- Nawigacja belka menu -->
+		<div class="navbar-header" style="display: flex; padding: 0; margin:0;">
+		
+			<!-- Przycisk Menu rozwijanego -->
+			<div style="float:none; box-sizing: border-box; background-clip: padding-box; padding: 0; margin: 0; max-width: 50%; width: 50px; text-align: left; line-height: normal;">
+				<button style="float:none;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<!-- Logo drogi wsp. -->
+			<div style="box-sizing: border-box; padding: 0; margin: auto;">
+				<h4 style="margin: 0; font-variant: small-caps;">Dodaj drogę</h4>
+			</div>
+			
+			<!-- przycisk back -->
+			<div style="margin: auto 0; padding: 0 0 0 26px;">
+				<a href="">
+					<button class="btn btn-xs" onclick="window.history.back()" type="button"><span class="glyphicon glyphicon-chevron-left"></span></button>
+				</a>
+			</div>
+		</div>
+		
+		<!-- Menu rozwijane -->
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active";><a href="../homeDW.html"><span style="padding-right: 10px;" class="glyphicon glyphicon-menu-hamburger"></span>Menu główne</a></li>
+				<hr style="margin: 0 auto;width: 92%;border-top: 1px solid;color: rgb(0, 0, 0);">
+				<hr style="margin: 0 auto;width: 92%;border-top: 1px solid;color: rgb(56, 56, 56);">
+
+				<li><a href="../html/md_wyszukaj_wsz_drogi.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-search"></span>Wyszukaj wszystkie drogi</a></li>
+				<li><a href="../html/md_prze_swo_drogi.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-zoom-in"></span>Przeglądaj swoje drogi</a></li>
+				<li><a href="../html/md_piramida.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-picture"></span>Piramida przejść</a></li>
+				<li><a href="../html/md_piramida_v2.html" class="mdw_a"><span style="padding-right: 10px" class="glyphicon glyphicon-picture"></span>Piramida przejść v2</a></li>
+
+			</ul>
+		</div>
+		<!-- koniec menu rozwijane  -->
+  </div>
+</nav>
+		
+
+<!-- Animacja menu Accordeon -->
+<div class="content w3-animate-left">
+		
+<!-- CONTENT ************************* -->
+		<div class="content_opt">
+			<div style="width: 45%; float: left;">
+				<h5 style="text-align: center;">Typ drogi</h5>
+				<div style="padding: 0px 0px 40px 15px; border: 1px solid #696969; border-radius: 5px; margin: 0 0px 0px 0px;">
+					<input type="radio" name="typ_drogi" value="Moonboard" id="moonboard_field"> Moonboard<br>
+					<input type="radio" name="typ_drogi" value="Skały" id="skaly_field"> Skaly<br>
+					<input type="radio" name="typ_drogi" value="Ścianka" id="scianka_field"> Scianka <br>				
+				</div>
+			</div>
+			<div style="width: 45%; float: right;">
+				<h5 style="text-align: center;">Styl przejścia</h5>
+				<div style="padding: 0px 0px 13px 15px; border: 1px solid #696969; border-radius: 5px; margin: 0 0px 0px 0px;">
+					<input type="radio" name="styl" value="OS" id="os_field"> OS<br>
+					<input type="radio" name="styl" value="Flash" id="flash_field"> Flash<br>
+					<input type="radio" name="styl" value="RP" id="pr_field"> RP <br>
+					<input type="radio" name="styl" value="Proba" id="proba_field"> Próba <br>			
+				</div>
+			</div>
+			<div style="clear: both">
+				<h5>Nazwa drogi</h5>
+				<input class="form-control" id="nazwa_field">
+				<h5>Nazwa skały</h5>
+				<input class="form-control" id="skala_field">
+				<h5>Nazwa regionu</h5>
+				<input class="form-control" id="region_field">		
+			</div>
+
+			<h5>Trudność</h5>
+			<select class="form-control" id="trudnosc_field">
+				 <option value="5a">5a</option>
+				 <option value="5b">5b</option>
+				 <option value="5c">5c</option>
+				 <option value="6a">6a</option>
+				 <option value="6a+">6a+</option>
+				 <option value="6b">6b</option>
+				 <option value="6b+">6b+</option>
+				 <option value="6c">6c</option>
+				 <option value="6c+">6c+</option>
+				 <option value="7a">7a</option>
+				 <option value="7a+">7a+</option>
+				 <option value="7b">7b</option>
+				 <option value="7b+">7b+</option>
+				 <option value="7c">7c</option>
+				 <option value="7c+">7c+</option>
+				 <option value="8a">8a</option>
+				 <option value="8a+">8a+</option>
+				 <option value="8b">8b</option>
+				 <option value="8b+">8b+</option>
+				 <option value="8c">8c</option>
+				 <option value="8c+">8c+</option>
+				 <option value="9a">9a</option>
+				 <option value="9a+">9a+</option>
+				 <option value="9b">9b</option>
+				 <option value="9b+">9b+</option>
+				 <option value="9c">9c</option>
+				 <option value="9c+">9c+</option>
+			</select>
+			<h5>Data</h5>
+			<input class="form-control" type="date" id="datePicker" autocomplete="on" >
+			<br>
+			<button id="dodajDroge" class="btn btn-lg btn-primary btn-block" onclick="dodajDroge()"> Dodaj</button>
+		</div>
+	</div> <!-- Koniec - Animacja menu Accordeon -->
+</div> <!-- Koniec - Animacja menu Accordeon -->
+
+<script src="../js/dodajDroge.js"></script>
+
+</body>
+</html>

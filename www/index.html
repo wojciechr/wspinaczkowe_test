@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<title>Drogi Wspinaczkowe Cool App</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+	<link rel="stylesheet" type="text/css" href="css/w3.css">
+	<link rel="stylesheet" type="text/css" href="css/index_carousel.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font_awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="sansation_light_macroman/stylesheet.css" type="text/css" charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min_v41.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-2.1.4.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	
+	<script type="text/javascript" src="../js/index.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+	<script src="../js/firebase_conf.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="../js/google.js"></script>
+	<script src="../js/facebook_conf.js"></script>
+	<script src="../js/facebook_login.js"></script>
+	<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+	<link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+	<script src="../js/pgb.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+	
+<style>
+body, html {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+p {margin: 0; padding: 0;}
+
+@font-face {
+ font-family: sensation_light;
+ src: url(Sansation-Light-webfont.woff);
+}
+
+#DWsplash{
+	background-color: rgba(0, 0, 0, 1);
+	padding: 0;
+	margin: 0;
+	border-radius: 0px;
+}
+
+.w3-animate-zoom {
+	 animation: animatezoom 0.6s;
+	 height: 100%;
+}
+
+.SP_content{
+	position: relative;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	color: white;
+}
+
+.carousel {
+	position: absolute;
+	height: 100%;
+}
+
+.img_dwsplash {
+	height: 100%;
+}
+
+.GW_button{
+	position: unset;
+	display: inline-block;
+	color: #fff;
+	border-radius: 10px;
+	background-color: rgba(116, 116, 116, 0.3);
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+.btn.focus, .btn:focus, .btn:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: rgba(19, 113, 0, 0.36);
+}
+
+.carousel-inner {
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+	bottom: 25px;
+}
+
+.carousel-indicators {
+	position: absolute;
+	bottom: 1%;
+	z-index: 15;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	width: 100%;
+	left: 0;
+	text-align: unset;
+}
+
+
+
+
+
+/* ------- button spin start -------------------------- */
+@import "bourbon";
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+.wrap{  
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 20px auto 30px auto;
+  box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+border-radius: 50%;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.clicker{
+  background-color: white;
+  outline: none;  
+  font-weight: 600;
+	  position:absolute;
+  cursor: pointer;
+  padding: 0;
+	  border: none;
+	  height: 64px;
+	  width: 64px;
+  left: 8px;
+  top: 8px;
+	  border-radius: 100px;
+	  z-index: 2;
+	color: black;
+}
+
+.clicker:active{
+	  transform: translate(0, 1px);
+  height: 63px;
+	  box-shadow: 0px 1px 0 0 rgb(190,190,190) inset;
+}
+
+.circle{
+	  position: relative;
+  border-radius:40px;
+	  width: 80px;
+	  height: 80px;
+	  z-index: 1;
+}
+
+.circle.third{
+  border-radius: 0;
+}
+
+.clicker.faster:hover + .circle, .clicker.faster:active + .circle {
+	  animation: rotator linear .4s infinite;
+}
+
+.clicker.fast:hover + .circle, .clicker.fast:active + .circle {
+	  animation: rotator linear .5s infinite;
+}
+
+.clicker:hover + .circle, .clicker:active + .circle {
+	  animation: rotator linear .8s infinite;
+}
+
+@keyframes rotator{
+	  from{ transform: rotate(0deg); }
+	  to{ transform: rotate(360deg); }
+}
+
+		
+.angled {
+	background-image: linear-gradient(45deg, 
+		white 0%,
+		white 30%,
+		rgb(1, 54, 0) 30%,
+				rgb(24, 192, 0) 70%, 
+		white 70%, 
+		white 100%);
+	}
+
+.angled.second{
+	background-image: linear-gradient( 
+		white 0%,
+		white 30%,
+		rgb(250,160,120) 30%,
+				rgb(250,160,120) 70%, 
+		white 70%, 
+		white 100%);
+}
+
+.angled.third{
+background-image: linear-gradient(45deg, 
+		white 0%,
+		white 30%,
+		rgb(130,230,135) 30%,
+				rgb(130,230,135) 70%, 
+		white 70%, 
+		white 100%);
+}
+/* ----------------- button spin koniec --------------------- */
+
+</style>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$("#typeWriter").modal('show');
+}); 
+
+window.onload=timeout;
+function timeout(){
+window.setTimeout("redirect()",45000)}
+
+function redirect(){
+window.location="homeDW.html"
+return}
+
+</script>
+</head>
+
+<!--<body onload="splash(3000)">-->
+<body onload="timeout();" style="background-color: rgb(50, 50, 50); font-family: segoe UI, sans-serif, Arial; text-align">
+<div id="DWsplash" class="w3-modal" style="display: block; color: white;">
+	<div class="w3-animate-zoom">
+		<div class="w3-container w3-black w3-display-container">		
+		</div>
+			<div class="SP_content">
+			<!-- KARUZELA -->
+			<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+
+
+
+				<p class="img_dwsplash"><img class="SP_img" src="img/Rock-Climbing.jpg" style="width:100%"></p>
+
+<!-- zegarek 
+<div style="position: absolute; top: 57%; width: 100%; opacity: 0.2;"><iframe src="html/zegarek.html" align="middle" scrolling="no" frameborder="0" height="200px" width="200px"></iframe></div> -->
+
+<!-- Opis Drogi Wspinaczkowe 
+<div style="position: absolute; top: 0%; width: 100%; opacity: 0.5; font-size: 25px; text-shadow: 0px 0px 20px black, 0 0 15px #039300, 0 0 10px white, -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; color:rgb(9, 158, 0);text-align: left;">Drogi<br>Wspinaczkowe<br>+5</div>  -->
+
+<!-- przycisk spin -->
+<div style="position: absolute; top: 40.5%; width: 100%; opacity: 0.6;">
+	<div class="wrap">	
+		<button onClick="redirect();" href="#" class="clicker">Wejdź</button>
+		<div class="circle angled"></div>
+	</div>
+</div>
+<!--<div style="position: absolute; top: 47.5%; width: 100%; opacity: 1;"><button type="button" class="GW_button btn btn-outline-success" onClick="redirect();">Sprawdź jak działa</button></div>-->
+
+				
+				<!-- kontrolki slidera lewa prawa -->
+				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+
+
+				<!-- Karuzela -->
+				<div class="carousel-inner" role="___listbox">
+					<div class="item active">
+						<p style="height: 106px; color: rgb(188, 185, 0);"><img src="img\Logo_splash.gif" alt="Drogi Wspinaczkowe"></p>
+					</div>
+	<!--	-->	<div class="item">
+						<h4>Aplikacja do zapisywania dróg wspinaczkowych,<br>
+						które się przeszło lub które próbowało się przejść.<br>
+						<span>Użytkownik będzie miał w każdej chwili dostęp<br>
+						do swoich dotychczasowych osiągnięć.</span></h4>
+					</div>
+					<div class="item">
+					  <h4>Użytkownik:<br>
+					  <span>Będzie mógł przeglądać drogi które przeszedł<br>
+					  (lub próbował) oraz modyfikować je (na przykład<br>
+					  styl: podjęta (nieudana) próba -> RP)</span></h4>
+					</div>
+					<div class="item">
+					  <h4>Podziały według różnych kategorii:<br>
+					  <span>gdzie dana droga się znajduje: moonboard<br>
+					  (https://www.moonboard.com) / ścianka / skały<br><br></span></h4>
+					</div>
+					<div class="item">
+					  <h4>Podziały według różnych kategorii:<br>
+					  <span>styl przejścia (posortowane od najtrudniejszego:<br>
+					  OS / FL / RP / podjęta próba (nieudane))<br><br></span></h4>
+					</div>
+					<div class="item">
+					  <h4>Podziały według różnych kategorii:<br>
+					  <span>trudność (trzy skale do wyboru:<br>
+					  Kurtyki/francuska/USA)<br><br></span></h4>
+					</div>  
+				</div>
+
+
+				<!-- kropki -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="3"></li>
+					<li data-target="#myCarousel" data-slide-to="4"></li>
+					<li data-target="#myCarousel" data-slide-to="5"></li>
+				</ol>
+
+
+			</div>
+			<!-- KARUZELA KONIEC -->
+			</div>
+	</div>
+</div>
+<script>
+</script>
+</body>
+</html>
