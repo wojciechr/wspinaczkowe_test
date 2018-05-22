@@ -39,12 +39,12 @@
     <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
     <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-    <plugin name="cordova-plugin-googleplus" source="npm" spec="5.2.1"/>
+    <plugin name="cordova-plugin-googleplus" source="npm" spec="5.2.1">
     <variable name="WEB_APPLICATION_CLIENT_ID" value="81802368109-8pomelv41akmrkb2vrmu6fhuch8bet5s.apps.googleusercontent.com" />
+	</plugin>
     <plugin name="cordova-plugin-facebook4" source="npm" spec="1.7.4">
         <variable name="APP_ID" value="2065286753691545" />
         <variable name="APP_NAME" value="Drogi wspinaczkowe" />
-        <variable name="ANDROID_SDK_VERSION" value="4.+" />
     </plugin>
     <engine name="android" spec="^7.0.0" />
 </widget>
